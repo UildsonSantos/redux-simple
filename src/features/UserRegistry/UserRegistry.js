@@ -8,10 +8,11 @@ export default function UserRegistry() {
     const dispatch = useDispatch();
 
     function add() {
-        dispatch(userRegistryActions.add(new_user));
+        if (new_user.trim() !== '')
+            dispatch(userRegistryActions.add(new_user));
         setNew_user('');
      }
-     
+
     return (
         <div className="user">
             <h2>Registro de usuários</h2>
